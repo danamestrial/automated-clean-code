@@ -5,7 +5,7 @@ from typing import Dict
 
 
 def hist_filler(string: str) -> Dict[str, int]:
-    """fill up a histogram.
+    """Fill up a histogram.
 
     Args:
       string (str): a string to be stuffed into hist
@@ -24,9 +24,17 @@ def hist_filler(string: str) -> Dict[str, int]:
 
 
 def find_min_max_key(hist: Dict[str, int]) -> (int, int):
+    """Find min max key.
+
+    Args:
+      hist (str): a dict
+
+    Returns:
+      (int, int). tuple containing min/max
+    """
     max_key, min_key = None, None
     max_counter, min_counter = 0, 0
-    # find max key
+
     for k, v in hist.items():
         if max_key is None or v > max_counter:
             max_key = k
@@ -38,9 +46,16 @@ def find_min_max_key(hist: Dict[str, int]) -> (int, int):
     return max_key, min_key
 
 
-def hist_lib(args: str):
+def hist_lib(args: str) -> None:
+    """To run main function.
+
+    Args:
+      args (str): a argument.
+
+    Returns:
+      None.
+    """
     hist = hist_filler(args)
     (max_key, min_key) = find_min_max_key(hist)
 
-    print(f'Min Key = {min_key} with count = {hist[min_key]}')
-    print(f'Max Key = {max_key} with count = {hist[max_key]}')
+    print(f"Min Key = {min_key} with count = {hist[min_key]} \nMax Key = {max_key} with count = {hist[max_key]}")
